@@ -53,16 +53,21 @@ trait ActiveRecordTrait
         return $model;
     }
 
-    public static function findOrCreate($where, array $attributes = [])
+    public static function findOrCreate($where, array $attributes = [], bool $refresh = true)
     {
-        $return = static::find()->where($where)->one();
+        $return = static::findOne($where);
 
         if ($return)
         {
             return $return;
         }
 
-        return static::createOrFail($attributes);
+        if (is_array($where))
+        {
+            $attributes = array_merge($where, $attributes);
+        }
+
+        return static::createOrFail($attributes, $refresh);
     }
 
 }
