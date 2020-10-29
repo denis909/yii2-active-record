@@ -70,4 +70,16 @@ trait ActiveRecordTrait
         return static::createOrFail($attributes, $refresh);
     }
 
+    public static function findOrFail($where)
+    {
+        $return = static::findOne($where);
+
+        if (!$return)
+        {
+            throw new Exception('Record now found.');
+        }
+
+        return $return;
+    }
+
 }
