@@ -27,6 +27,18 @@ trait ActiveRecordTrait
         return $return;
     }
 
+    public function deleteOrFail()
+    {
+        $return = parent::delete();
+
+        if ($return === false)
+        {
+            throw new Exception('The deletion is unsuccessful for some reason.');
+        }
+
+        return $return;
+    }
+
     public static function createOrFail(array $attributes, bool $refresh = true)
     {
         $model = static::instantiate($attributes);
