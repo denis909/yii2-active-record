@@ -17,7 +17,7 @@ trait ActiveRecordTrait
 
     public function saveOrFail($runValidation = true, $attributeNames = null)
     {
-        $return = parent::save($runValidation, $attributeNames);
+        $return = $this->save($runValidation, $attributeNames);
 
         if (!$return)
         {
@@ -29,7 +29,7 @@ trait ActiveRecordTrait
 
     public function deleteOrFail()
     {
-        $return = parent::delete();
+        $return = $this->delete();
 
         if ($return === false)
         {
@@ -76,7 +76,7 @@ trait ActiveRecordTrait
 
         if (!$return)
         {
-            throw new Exception('Record now found.');
+            throw new Exception('Record not found.');
         }
 
         return $return;
