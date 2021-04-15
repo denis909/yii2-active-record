@@ -8,7 +8,7 @@
         }
     },
     "require": {
-        "psr/logger": "*",
+        "psr/log": "*",
         "denis909/yii2-model": "*"
     }
 }
