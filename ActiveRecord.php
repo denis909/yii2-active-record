@@ -8,6 +8,8 @@ use Psr\Log\NullLogger;
 class ActiveRecord extends \yii\db\ActiveRecord implements ModelInterface
 {
 
+    use RefreshAttributesTrait;
+    
     use ModelTrait;
     
     use ActiveRecordTrait;

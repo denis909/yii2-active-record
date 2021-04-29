@@ -1,6 +1,5 @@
 {
     "name": "denis909/yii2-active-record",
-    "type": "library",
     "license": "MIT",
     "autoload": {
         "psr-4": {
@@ -9,6 +8,7 @@
     },
     "require": {
         "psr/log": "*",
-        "denis909/yii2-model": "*"
+        "denis909/yii2-model": "*",
+        "denis909/yii2-refresh-attributes-trait": "*"
     }
 }
