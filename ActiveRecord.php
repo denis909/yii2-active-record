@@ -19,6 +19,11 @@ class ActiveRecord extends \yii\db\ActiveRecord implements ModelInterface
     public function __construct($config = [])
     {
         parent::__construct($config);
+    }
+
+    public function init()
+    {
+        parent::init();
 
         $this->setLogger(new NullLogger);
     }
