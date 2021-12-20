@@ -10,9 +10,7 @@ trait ActiveRecordTrait
 
     public static function instantiate($row)
     {
-        $row['class'] = static::class;
-
-        return Yii::createObject($row);
+        return Yii::createObject(get_called_class());
     }
 
     public function saveOrFail($runValidation = true, $attributeNames = null)
