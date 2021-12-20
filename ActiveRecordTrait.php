@@ -43,6 +43,8 @@ trait ActiveRecordTrait
     {
         $model = static::instantiate($attributes);
 
+        Yii::configure($model, $attributes);
+
         $model->saveOrFail();
 
         if ($refresh)
